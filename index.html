@@ -660,12 +660,16 @@ padding:15px 0 0;transform:none}
 const toggle = document.querySelector('.menu-toggle');
 const nav = document.querySelector('#main-nav');
 
+
 function closeMenu() {
     nav.classList.remove('open');
     toggle.setAttribute('aria-expanded', 'false');
     toggle.textContent = '☰';
-    document.body.style.overflow = '';
+
+    document.documentElement.style.overflowY = '';
+    document.body.style.overflowY = '';
 }
+
 
 toggle.addEventListener('click', () => {
     const open = nav.classList.toggle('open');
@@ -673,7 +677,8 @@ toggle.addEventListener('click', () => {
     toggle.setAttribute('aria-expanded', open);
     toggle.textContent = open ? '×' : '☰';
 
-    document.body.style.overflow = open ? 'hidden' : '';
+    document.documentElement.style.overflowY = open ? 'hidden' : '';
+document.body.style.overflowY = open ? 'hidden' : '';
 });
 
 
