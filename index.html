@@ -647,9 +647,26 @@ toggle.addEventListener('click', () => {
     document.body.style.overflow = open ? 'hidden' : '';
 });
 
+
 nav.querySelectorAll('a').forEach(a => {
-    a.addEventListener('click', closeMenu);
+    a.addEventListener('click', e => {
+        const target = document.querySelector(a.getAttribute('href'));
+
+        if (!target) return;
+
+        e.preventDefault();
+
+        closeMenu();
+
+        requestAnimationFrame(() => {
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        });
+    });
 });
+
 
 document.addEventListener('click', e => {
     if (!e.target.closest('.header-inner')) {
