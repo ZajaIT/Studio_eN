@@ -355,7 +355,25 @@
   }
 
 }
-@media(max-width:700px){html{scroll-padding-top:65px}.header-inner{height:66px}.header-inner>.pill{display:none}.menu-toggle{display:block}.header-inner>.nav{
+@media(max-width:700px){html{scroll-padding-top:65px}
+.site-header{
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    width:100%;
+    z-index:30;
+}
+
+body{
+    padding-top:66px;
+}
+
+.header-inner{
+    height:66px;
+}
+
+    .header-inner>.pill{display:none}.menu-toggle{display:block}.header-inner>.nav{
     display:flex;
     position:absolute;
     top:66px;
