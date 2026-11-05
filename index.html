@@ -1,0 +1,654 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Studio eN | Kosmetické studio Litomyšl</title>
+<meta name="description" content="Studio eN Litomyšl – kosmetická péče, omlazení, permanentní make-up a péče o tělo.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--rose:#b77f88;--rose-dark:#98636e;--ink:#202b26;--cream:#fbf7f4;--dark:#1e3028;--line:#e8dfda;--body:'DM Sans',Arial,sans-serif;--serif:'Playfair Display',Georgia,serif}*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:80px}body{margin:0;color:#242724;font-family:var(--body);font-size:14px}a{text-decoration:none;color:inherit}button{font:inherit}img{display:block;width:100%}.wrap{max-width:1440px;margin:auto;padding-left:clamp(24px,3vw,52px);padding-right:clamp(24px,3vw,52px)}.site-header{position:sticky;top:0;z-index:30;background:#fff;box-shadow:0 1px 8px #0000000a}.header-inner{height:76px;display:flex;align-items:center;justify-content:space-between;gap:25px}.logo{line-height:1;min-width:185px}.logo-main{font-family:var(--serif);font-size:27px;letter-spacing:3px;white-space:nowrap}.logo-main em{font-style:italic;color:var(--rose);font-size:43px;letter-spacing:-3px}.logo-sub{font-size:9px;letter-spacing:7px;margin-top:3px}.nav{display:flex;gap:30px;align-items:center}
+
+.nav a{font-size:16px}
+
+.nav a:hover,.nav a.active{color:var(--rose)}.pill{border:0;border-radius:30px;background:var(--rose);color:white;padding:14px 23px;display:inline-flex;gap:12px;align-items:center;justify-content:center;font-weight:700;font-size:11px;letter-spacing:.4px;cursor:pointer;transition:background .2s,transform .2s;white-space:nowrap}.pill:hover{background:var(--rose-dark);transform:translateY(-2px)}.pill svg{width:17px;height:17px}.menu-toggle{display:none;background:none;border:0;cursor:pointer;font-size:25px}.hero{height:500px;background:#eee6dd url('hero.webp') center center/cover no-repeat;position:relative;display:flex;align-items:center}.hero-content{width:100%;display:flex;justify-content:flex-end}.hero-copy{width:53%;padding:20px 0;transform:translateY(-25px)}.eyebrow{font-size:12px;letter-spacing:1.6px;margin:0 0 16px;font-weight:500}.hero h1{font:400 clamp(33px,3.8vw,58px)/1.2 var(--serif);color:var(--dark);margin:0 0 16px;max-width:620px}.hero-desc{font-size:16px;line-height:1.6;margin:0 0 20px}.hero .pill{padding:15px 28px}
+
+/* SEKCE SLUZBY – PC */
+.services-section{
+  background:#fff;
+  padding-top:55px;
+}
+
+.services-heading{
+  text-align:center;
+  margin-bottom:45px;
+}
+
+.services-heading h2{
+  font:400 32px/1.3 var(--serif);
+  color:var(--dark);
+  margin:0;
+}
+
+.services-heading h2::after{
+  content:"";
+  display:block;
+  width:75px;
+  height:1px;
+  background:var(--rose);
+  margin:15px auto 0;
+}
+
+.categories{
+  padding-top:0;
+  padding-bottom:50px;
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:16px;
+}
+
+.category{height:clamp(180px,18vw,285px);position:relative;overflow:hidden;color:#fff}.category img{height:100%;object-fit:cover;transition:transform .4s}.category:hover img{transform:scale(1.045)}.category:after{content:'';position:absolute;inset:0;background:linear-gradient(transparent 35%,#0009)}.category-info{position:absolute;z-index:1;bottom:18px;left:20px;right:12px}.category-title{font-size:clamp(14px,1.55vw,21px);letter-spacing:.5px;font-weight:500;line-height:1.25}.circle-arrow{width:30px;height:30px;border:1px solid white;border-radius:50%;display:grid;place-items:center;margin-top:10px;font-size:19px}.treatments{
+  background:linear-gradient(110deg,#fcf9f7,#f4eae5);
+  padding-top:45px;
+  padding-bottom:30px;
+}.section-heading{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-bottom:45px;
+  gap:20px;
+  position:relative;
+}
+
+.section-heading > a{
+  position:absolute;
+  right:0;
+}.section-heading h2{
+  font:400 clamp(26px,2.7vw,39px)/1.3 var(--serif);
+  margin:0;
+  text-align:center;
+}
+
+.section-heading h2::after{
+  content:"";
+  display:block;
+  width:75px;
+  height:1px;
+  background:var(--rose);
+  margin:15px auto 0;
+}.section-heading>a{font-size:11px;color:var(--rose-dark);letter-spacing:.6px}.treatment-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:15px}.treatment-card{background:#fff;display:flex;flex-direction:column;min-width:0}.treatment-card img{
+  height:clamp(105px,10.3vw,175px);
+  object-fit:cover;
+  filter:saturate(0.78) contrast(0.96);
+}.treatment-content{padding:13px 12px 12px;display:flex;flex:1;flex-direction:column}.treatment-card h3{
+  font:500 17px/1.35 var(--serif);
+  margin:0 0 10px;
+}.treatment-card p{
+  font-size:13px;
+  line-height:1.5;
+  margin:0 0 16px;
+}.price{margin-top:auto;font-weight:700;font-size:11px;padding-bottom:10px}.small-pill{width:100%;padding:10px 8px;font-size:10px}
+
+.benefits{
+  padding-top:30px;
+  padding-bottom:30px;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  background:#fff;
+}
+
+/* VÝHODY – JEMNÁ RŮŽOVÁ ODDĚLOVACÍ LINKA */
+.benefits{
+  position:relative;
+}
+
+.benefits::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:20%;
+  width:60%;
+  height:3px;
+  background:linear-gradient(
+    to right,
+    transparent 0%,
+    #b9828d 50%,
+    transparent 100%
+  );
+}
+
+.benefit{text-align:center;padding:8px 16px;border-right:1px solid var(--line)}.benefit:last-child{border-right:0}.benefit svg{width:36px;height:36px;stroke:var(--dark);stroke-width:1.3;fill:none;stroke-linecap:round;stroke-linejoin:round;margin:0 auto 10px}.benefit h3{font:500 15px var(--serif);margin:0 0 6px}.benefit p{font-size:12px;margin:0}
+
+.studio{
+  display:grid;
+  grid-template-columns:1.15fr .78fr .43fr;
+  height:450px;
+  background:linear-gradient(110deg,#fcf9f7,#f4eae5);
+}.studio-photo,
+.studio-detail{
+  width:100%;
+  height:450px;
+  min-height:0;
+  object-fit:cover;
+}
+
+.studio-detail{
+  object-position:0% center;
+}
+.studio-text{padding:clamp(25px,3vw,55px);display:flex;flex-direction:column;justify-content:center}.studio-text h2{
+  font:600 clamp(24px,2.3vw,35px) var(--serif);
+  margin:0 0 15px;
+}.studio-text>p{
+  font-size:16px;
+  line-height:1.6;
+  margin:0 0 22px;
+}.contact-line{
+  display:flex;
+  align-items:flex-start;
+  gap:12px;
+  margin:5px 0;
+  font-size:15px;
+  font-weight:500;
+  line-height:1.5;
+}
+
+.contact-line svg{flex:none;width:18px;height:18px;stroke:var(--dark);fill:none;stroke-width:1.5}
+
+.contact-symbol{
+  flex:none;
+  width:18px;
+  text-align:center;
+  font-size:18px;
+  line-height:1.2;
+  color:var(--dark);
+  font-weight:500;
+}
+
+.contact-line a:hover{
+  color:var(--rose);
+}
+
+/* DÁRKOVÉ POUKAZY – PC */
+.vouchers{
+  background:#fff;
+  padding:80px 0 38px;
+}
+
+.vouchers-inner{
+  display:grid;
+  grid-template-columns:420px 460px;
+  align-items:center;
+  justify-content:center;
+  gap:65px;
+}
+
+.vouchers-image{
+  grid-column:1;
+  grid-row:1;
+  width:100%;
+  background:#fff;
+  padding:12px;
+  box-shadow:0 8px 28px rgba(0,0,0,0.10);
+}
+
+.vouchers-image img{
+  display:block;
+  width:100%;
+  height:auto;
+  object-fit:contain;
+}
+
+.vouchers-text{
+  grid-column:2;
+  grid-row:1;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+}
+
+.vouchers-text h2{
+  font:500 36px/1.3 var(--serif);
+  color:var(--dark);
+  margin:0 0 22px;
+}
+
+.vouchers-text h2::after{
+  content:"";
+  display:block;
+  width:75px;
+  height:1.3px;
+  background:var(--rose);
+  margin-top:15px;
+}
+
+.vouchers-text p{
+  font-size:16px;
+  line-height:1.7;
+  color:var(--dark);
+  margin:0 0 25px;
+}
+
+.vouchers-link{
+  display:inline-flex;
+  align-items:center;
+  gap:12px;
+  color:var(--rose);
+  font-size:15px;
+  font-weight:600;
+  text-decoration:none;
+  transition:color .3s ease;
+}
+
+.vouchers-link span{
+  font-size:23px;
+  font-weight:400;
+  transition:transform .3s ease;
+}
+
+.vouchers-link:hover{
+  color:var(--dark);
+}
+
+.vouchers-link:hover span{
+  transform:translateX(5px);
+}
+
+/* FOOTER – PC */
+.site-footer{
+  background:var(--dark);
+  color:#fff;
+  padding-top:20px;
+  padding-bottom:20px;
+}
+
+.footer-bottom{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:25px;
+  padding-top:0;
+  font-size:12px;
+  color:#ffffffba;
+}
+
+.site-footer .logo{
+  min-width:210px;
+}
+
+.site-footer .logo-main{
+  font-size:24px;
+}
+
+.site-footer .logo-main em{
+  font-size:39px;
+}
+
+/* TABLET */
+
+/* DÁRKOVÉ POUKAZY – TABLET */
+@media(max-width:1050px){
+
+  .vouchers{
+    padding:45px 0;
+  }
+
+  .vouchers-inner{
+    grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+    gap:35px;
+  }
+
+  .vouchers-text h2{
+    font-size:30px;
+  }
+
+  .vouchers-text p{
+    font-size:15px;
+  }
+
+}
+
+@media(max-width:1050px){.header-inner{gap:14px}.nav{gap:16px}.header-inner>.pill{padding:12px}.logo{min-width:155px}.logo-main{font-size:22px}.logo-main em{font-size:34px}.logo-sub{letter-spacing:5px}.treatment-grid{grid-template-columns:repeat(3,1fr)}.treatment-card img{height:180px}.hero-copy{width:55%}.studio{grid-template-columns:1fr 1fr}.studio-detail{display:none}.footer-top .nav{gap:13px}}
+
+
+/* MOBIL */
+
+/* DÁRKOVÉ POUKAZY – MOBIL */
+@media(max-width:700px){
+
+  .vouchers{
+    padding:40px 0;
+  }
+
+  .vouchers-inner{
+    grid-template-columns:1fr;
+    gap:30px;
+  }
+
+  .vouchers-text{
+    grid-column:1;
+    grid-row:1;
+    align-items:center;
+    text-align:center;
+  }
+
+  .vouchers-text h2{
+    font-size:28px;
+    margin-bottom:22px;
+  }
+
+  .vouchers-text h2::after{
+    margin:15px auto 0;
+  }
+
+  .vouchers-text p{
+    font-size:15px;
+    line-height:1.7;
+    margin-bottom:22px;
+  }
+
+  .vouchers-image{
+    grid-column:1;
+    grid-row:2;
+    width:100%;
+    max-width:420px;
+    margin:0 auto;
+  }
+
+}
+@media(max-width:700px){html{scroll-padding-top:65px}.header-inner{height:66px}.header-inner>.pill{display:none}.menu-toggle{display:block}.header-inner>.nav{display:none;position:absolute;top:66px;left:0;right:0;background:white;flex-direction:column;gap:0;box-shadow:0 10px 20px #0002}.header-inner>.nav.open{display:flex}.header-inner>.nav a{padding:15px 25px;width:100%;text-align:center;border-top:1px solid #eee}.hero{min-height:560px;height:auto;background-position:30% top;background-size:auto 350px;background-color:#f5eee8;align-items:flex-end}.hero-content{padding-top:350px;padding-bottom:30px;justify-content:center}
+.hero-copy{
+width:100%;
+text-align:center;
+padding:15px 0 0;transform:none}
+
+.hero h1{font-size:36px;margin-inline:auto}.eyebrow{font-size:10px}.hero-desc{font-size:14px}.services-section{
+  padding-top:30px;
+}
+
+.services-heading{
+  margin-bottom:22px;
+}
+
+.services-heading h2{
+  font-size:25px;
+}
+
+.categories{
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
+  padding-top:0;
+  padding-bottom:25px;
+}
+
+.category{height:210px}.category-title{font-size:15px}.category-info{left:14px;bottom:13px}.treatment-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.treatment-card img{height:150px}.treatment-content{padding:12px 10px}.section-heading h2{font-size:27px}.benefits{grid-template-columns:repeat(2,1fr);gap:20px 0}.benefit:nth-child(2){border:0}.studio{grid-template-columns:1fr}.studio-photo{height:280px;min-height:0}.studio-text{padding:32px 24px}.footer-top{flex-direction:column}.footer-top .nav{flex-wrap:wrap;justify-content:center}.footer-bottom{
+  flex-direction:column;
+  gap:12px;
+  text-align:center;
+}.site-footer .logo{text-align:center}.site-footer .logo-sub{text-align:center}}
+@media(max-width:390px){.categories{gap:8px}.category{height:170px}.treatment-card img{height:120px}.hero h1{font-size:31px}.section-heading>a{font-size:9px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
+
+/* =================================
+   NAJÍŽDĚCÍ ANIMACE – CELÝ WEB
+================================= */
+
+.reveal{
+  opacity:0;
+  transform:translateY(28px);
+  transition:
+    opacity .8s ease,
+    transform .8s cubic-bezier(.22,1,.36,1);
+}
+
+.reveal-left{
+  opacity:0;
+  transform:translateX(-35px);
+  transition:
+    opacity .9s ease,
+    transform .9s cubic-bezier(.22,1,.36,1);
+}
+
+.reveal-right{
+  opacity:0;
+  transform:translateX(35px);
+  transition:
+    opacity .9s ease,
+    transform .9s cubic-bezier(.22,1,.36,1);
+}
+
+.reveal.visible,
+.reveal-left.visible,
+.reveal-right.visible{
+  opacity:1;
+  transform:translate(0,0);
+}
+
+/* Postupné zobrazování karet */
+.category:nth-child(2),
+.treatment-card:nth-child(2),
+.benefit:nth-child(2){
+  transition-delay:.1s;
+}
+
+.category:nth-child(3),
+.treatment-card:nth-child(3),
+.benefit:nth-child(3){
+  transition-delay:.2s;
+}
+
+.category:nth-child(4),
+.treatment-card:nth-child(4),
+.benefit:nth-child(4){
+  transition-delay:.3s;
+}
+
+.treatment-card:nth-child(5){
+  transition-delay:.4s;
+}
+
+.treatment-card:nth-child(6){
+  transition-delay:.5s;
+}
+
+/* Hero – jemné objevení při načtení */
+.hero-copy{
+  animation:heroFade 1s ease both;
+}
+
+@keyframes heroFade{
+  from{
+    opacity:0;
+    translate:0 20px;
+  }
+  to{
+    opacity:1;
+    translate:0 0;
+  }
+}
+
+/* Respektování omezení pohybu */
+@media(prefers-reduced-motion:reduce){
+
+  .reveal,
+  .reveal-left,
+  .reveal-right{
+    opacity:1;
+    transform:none;
+    transition:none;
+  }
+
+  .hero-copy{
+    animation:none;
+  }
+
+}
+
+/* HERO – POMALÉ OBJEVENÍ FOTOGRAFIE */
+
+.hero{
+  background-image:none;
+  isolation:isolate;
+}
+
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  background:#eee6dd url('hero.webp') center center/cover no-repeat;
+  animation:heroImageFade 2s ease-out both;
+}
+
+@keyframes heroImageFade{
+  from{
+    opacity:0;
+  }
+  to{
+    opacity:1;
+  }
+}
+
+/* MOBIL */
+@media(max-width:700px){
+  .hero::before{
+    background-position:30% top;
+    background-size:auto 350px;
+    background-color:#f5eee8;
+  }
+}
+
+/* OMEZENÍ POHYBU */
+@media(prefers-reduced-motion:reduce){
+  .hero::before{
+    animation:none;
+  }
+}
+
+</style>
+</head>
+<body>
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none"><symbol id="calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M7 3v4M17 3v4M3 10h18M8 14h3M14 14h3M8 18h3" fill="none" stroke="currentColor" stroke-width="1.7"/></symbol><symbol id="pin" viewBox="0 0 24 24"><path d="M12 22S4 14 4 10a8 8 0 0 1 16 0c0 4-8 12-8 12Z"/><circle cx="12" cy="10" r="2.5"/></symbol><symbol id="phone" viewBox="0 0 24 24"><path d="M5 3h4l2 5-3 2c1.3 2.7 3.3 4.7 6 6l2-3 5 2v4c0 1.5-1 2-2.5 2C9 21 3 15 3 5.5 3 4 3.5 3 5 3Z"/></symbol><symbol id="clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 6v6l4 2"/></symbol></svg>
+<header class="site-header"><div class="header-inner wrap"><a class="logo" href="#uvod" aria-label="Studio eN – úvod"><div class="logo-main">STUDIO <em>eN</em></div><div class="logo-sub">LITOMYŠL</div></a><nav class="nav" id="main-nav"><a href="#uvod">Úvod</a><a href="#sluzby">Služby</a><a href="#cenik">Oblíbená ošetření</a><a href="#poukazy">Dárkové poukazy</a><a href="#kontakt">Kontakt</a></nav><a class="pill" href="#kontakt"><svg><use href="#calendar"/></svg> OBJEDNAT SE</a><button class="menu-toggle" aria-label="Otevřít menu" aria-expanded="false" aria-controls="main-nav">☰</button></div></header>
+<main><section class="hero" id="uvod" aria-label="Úvodní fotografie"><div class="hero-content wrap"><div class="hero-copy"><p class="eyebrow">KOSMETIKA&nbsp; • &nbsp;PERMANENTNÍ MAKE-UP&nbsp; • &nbsp;OMLAZENÍ&nbsp; • &nbsp;PÉČE O TĚLO</p><h1>Dopřejte své pleti péči, kterou si zaslouží.</h1><p class="hero-desc">Profesionální kosmetická péče<br>v příjemném prostředí v centru Litomyšle.</p><a class="pill" href="#sluzby">PROHLÉDNOUT SLUŽBY <span aria-hidden="true">⟶</span></a></div></div></section>
+<section class="services-section" id="sluzby">
+  <div class="services-heading">
+    <h2>CO VÁM MOHU NABÍDNOUT</h2>
+  </div>
+
+  <div class="categories wrap"><a class="category" href="javascript:void(0)"><img src="kosmetika.webp" alt="Kosmetické ošetření"><div class="category-info"><div class="category-title">KOSMETICKÁ PÉČE</div><span class="circle-arrow">→</span></div></a><a class="category" href="javascript:void(0)"><img src="omlazeni.webp" alt="Omlazení pleti"><div class="category-info"><div class="category-title">OMLAZENÍ PLETI</div><span class="circle-arrow">→</span></div></a><a class="category" href="javascript:void(0)"><img src="permanentni-makeup.webp" alt="Permanentní make-up obočí"><div class="category-info"><div class="category-title">PERMANENTNÍ<br>MAKE-UP</div><span class="circle-arrow">→</span></div></a><a class="category" href="javascript:void(0)"><img src="telo.webp" alt="Péče o tělo"><div class="category-info"><div class="category-title">FORMOVÁNÍ POSTAVY</div><span class="circle-arrow">→</span></div></a></div></section>
+<section class="treatments wrap" id="cenik"><div class="section-heading"><h2>Oblíbená ošetření</h2></div><div class="treatment-grid">
+<article class="treatment-card"><img src="bukkalni-masaz.webp" alt="Bukální a liftingová masáž"><div class="treatment-content"><h3>Bukální a liftingová masáž</h3><p>Přirozený lifting obličeje, vyhlazení kontur, svěží vzhled.</p><div class="price">60 min · 1 400 Kč</div><a class="pill small-pill" href="#kontakt">OBJEDNAT</a></div></article>
+<article class="treatment-card"><img src="kralovske-osetreni.webp" alt="Královské ošetření"><div class="treatment-content"><h3>Královské ošetření</h3><p>Luxusní péče pro okamžitou regeneraci a rozjasnění pleti.</p><div class="price">120 min · 2 200 Kč</div><a class="pill small-pill" href="#kontakt">OBJEDNAT</a></div></article>
+<article class="treatment-card"><img src="radiofrekvence.webp" alt="Radiofrekvenční lifting"><div class="treatment-content"><h3>Radiofrekvenční lifting</h3><p>Zpevnění pleti, včetně krku a dekoltu.</p><div class="price">od 1 300 Kč</div><a class="pill small-pill" href="#kontakt">OBJEDNAT</a></div></article>
+<article class="treatment-card"><img src="diamantova.webp" alt="Diamantová mikrodermabraze"><div class="treatment-content"><h3>Diamantová mikrodermabraze</h3><p>Včetně kompletního kosmetického ošetření.</p><div class="price">od 1 300 Kč</div><a class="pill small-pill" href="#kontakt">OBJEDNAT</a></div></article>
+<article class="treatment-card"><img src="microneedling.webp" alt="Microneedling"><div class="treatment-content"><h3>Microneedling</h3><p>Stimulace kolagenu, regenerace pleti, zlepšení elasticity.</p><div class="price">90 min · 1 390 Kč</div><a class="pill small-pill" href="#kontakt">OBJEDNAT</a></div></article>
+<article class="treatment-card"><img src="pmu-detail.webp" alt="Permanentní make-up"><div class="treatment-content"><h3>Permanentní make-up</h3><p>Dokonalý vzhled 24/7. Obočí, linky, rty.</p><div class="price">cena individuálně</div><a class="pill small-pill" href="#kontakt">OBJEDNAT</a></div></article>
+</div></section>
+
+<!-- DÁRKOVÉ POUKAZY -->
+<section class="vouchers" id="poukazy">
+  <div class="vouchers-inner wrap">
+
+    <div class="vouchers-text">
+      <h2>Dárkové poukazy</h2>
+
+      <p>
+        Darujte svým blízkým chvíle odpočinku, krásy a péče.
+        Dárkový poukaz do Studia eN potěší při každé příležitosti.
+      </p>
+
+      <a href="#kontakt" class="vouchers-link">CHCI POUKAZ <span aria-hidden="true">→</span></a>
+    </div>
+
+    <div class="vouchers-image">
+      <img src="voucher.webp" alt="Dárkový poukaz Studio eN" loading="lazy">
+    </div>
+
+  </div>
+</section>
+
+<section class="benefits wrap" id="o-nas"><div class="benefit"><svg viewBox="0 0 40 40"><path d="M9 30C5 13 18 6 32 6c0 18-9 27-23 24ZM8 32c7-10 13-14 22-20"/></svg><h3>Profesionální péče</h3><p>s individuálním přístupem</p></div><div class="benefit"><svg viewBox="0 0 40 40"><path d="M20 34 6 20C-1 11 10 2 20 13 30 2 41 11 34 20Z"/></svg><h3>Moderní technologie</h3><p>a kvalitní přípravky</p></div><div class="benefit"><svg viewBox="0 0 40 40"><path d="M20 33c-8-8-8-17 0-27 8 10 8 19 0 27ZM19 32C9 31 5 25 5 14c9 1 14 7 14 18ZM21 32c10-1 14-7 14-18-9 1-14 7-14 18ZM8 27c-3 0-5-1-7-3 1 9 8 12 19 9 11 3 18 0 19-9-2 2-4 3-7 3"/></svg><h3>Příjemné prostředí</h3><p>v centru Litomyšle</p></div><div class="benefit"><svg viewBox="0 0 40 40"><path d="m20 4 5 11 12 1-9 8 3 12-11-6-11 6 3-12-9-8 12-1Z"/></svg><h3>Dlouholeté zkušenosti</h3><p>a spokojené klientky</p></div></section>
+<section class="studio" id="kontakt"><img class="studio-photo" src="interier.webp" alt="Interiér kosmetického studia"><div class="studio-text"><h2>Studio eN – Litomyšl</h2><p>Jsme kosmetické studio, které Vás bude hýčkat. Těšíme se na Vaši návštěvu.</p><div class="contact-line"><svg viewBox="0 0 24 24"><use href="#pin"/></svg><a href="https://maps.app.goo.gl/suMPiqMTEYg6dq56A" target="_blank" rel="noopener noreferrer">Smetanovo náměstí 69<br>570 01 Litomyšl</a></div><div class="contact-line"><svg viewBox="0 0 24 24"><use href="#phone"/></svg><a href="tel:+420777100878">777 100 878</a></div>
+<div class="contact-line">
+  <span class="contact-symbol">@</span>
+  <a href="mailto:huranovanada@seznam.cz">huranovanada@seznam.cz</a>
+</div><div class="contact-line"><svg viewBox="0 0 24 24"><use href="#clock"/></svg><span>Otevírací doba dle objednávek</span></div>
+
+<div class="contact-line">
+  <span class="contact-symbol">f</span>
+  <a href="https://www.facebook.com/profile.php?id=100040299409260&amp;locale=ja_JP" target="_blank" rel="noopener noreferrer">Facebook</a>
+</div></div><img class="studio-detail" src="kvetiny.webp" alt="Květinová dekorace ve studiu" id="galerie"></section></main>
+
+<footer class="site-footer wrap">
+  <div class="footer-bottom">
+
+    <a class="logo" href="#uvod" aria-label="Studio eN – úvod">
+      <div class="logo-main">STUDIO <em>eN</em></div>
+      <div class="logo-sub">LITOMYŠL</div>
+    </a>
+
+    <span>© 2026 Studio eN - všechna práva vyhrazena</span>
+
+    <span>IČO: 65186966</span>
+
+    <span>Designed by Zaja IT</span>
+
+  </div>
+</footer>
+
+<script>const toggle=document.querySelector('.menu-toggle'),nav=document.querySelector('#main-nav');toggle.addEventListener('click',()=>{const open=nav.classList.toggle('open');toggle.setAttribute('aria-expanded',open);toggle.textContent=open?'×':'☰'});nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');toggle.setAttribute('aria-expanded','false');toggle.textContent='☰'}));document.addEventListener('click',e=>{if(!e.target.closest('.header-inner')){nav.classList.remove('open');toggle.setAttribute('aria-expanded','false');toggle.textContent='☰'}});</script>
+
+<script>
+/* NAJÍŽDĚCÍ ANIMACE */
+
+const revealElements = [
+  ['.services-heading', 'reveal'],
+  ['.category', 'reveal'],
+  ['.section-heading', 'reveal'],
+  ['.treatment-card', 'reveal'],
+  ['.vouchers-image', 'reveal-left'],
+  ['.vouchers-text', 'reveal-right'],
+  ['.benefit', 'reveal'],
+  ['.studio-photo', 'reveal'],
+  ['.studio-text', 'reveal'],
+  ['.studio-detail', 'reveal']
+];
+
+const elementsToReveal = [];
+
+revealElements.forEach(([selector, animation]) => {
+  document.querySelectorAll(selector).forEach(element => {
+    element.classList.add(animation);
+    elementsToReveal.push(element);
+  });
+});
+
+if (
+  !('IntersectionObserver' in window) ||
+  window.matchMedia('(prefers-reduced-motion: reduce)').matches
+) {
+  elementsToReveal.forEach(element => {
+    element.classList.add('visible');
+  });
+} else {
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold:0.08,
+    rootMargin:'0px 0px 30px 0px'
+  });
+
+  elementsToReveal.forEach(element => {
+    observer.observe(element);
+  });
+
+}
+</script>
+
+</body></html>
