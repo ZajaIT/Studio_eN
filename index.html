@@ -596,7 +596,44 @@ padding:15px 0 0;transform:none}
   </div>
 </footer>
 
-<script>const toggle=document.querySelector('.menu-toggle'),nav=document.querySelector('#main-nav');toggle.addEventListener('click',()=>{const open=nav.classList.toggle('open');toggle.setAttribute('aria-expanded',open);toggle.textContent=open?'×':'☰'});nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');toggle.setAttribute('aria-expanded','false');toggle.textContent='☰'}));document.addEventListener('click',e=>{if(!e.target.closest('.header-inner')){nav.classList.remove('open');toggle.setAttribute('aria-expanded','false');toggle.textContent='☰'}});</script>
+
+<script>
+const toggle = document.querySelector('.menu-toggle');
+const nav = document.querySelector('#main-nav');
+
+function closeMenu() {
+    nav.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.textContent = '☰';
+    document.body.style.overflow = '';
+}
+
+toggle.addEventListener('click', () => {
+    const open = nav.classList.toggle('open');
+
+    toggle.setAttribute('aria-expanded', open);
+    toggle.textContent = open ? '×' : '☰';
+
+    document.body.style.overflow = open ? 'hidden' : '';
+});
+
+nav.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', closeMenu);
+});
+
+document.addEventListener('click', e => {
+    if (!e.target.closest('.header-inner')) {
+        closeMenu();
+    }
+});
+
+window.addEventListener('resize', () => {
+    if (window.innerWidth > 700) {
+        closeMenu();
+    }
+});
+</script>
+
 
 <script>
 /* NAJÍŽDĚCÍ ANIMACE */
