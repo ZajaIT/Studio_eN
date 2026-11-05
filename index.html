@@ -611,10 +611,20 @@ padding:15px 0 0;transform:none}
     background-color:#f5eee8;
   }
 
+  
   .vouchers-image.reveal-left,
   .vouchers-text.reveal-right{
-    transform:none;
+    transform:translateY(20px);
+    transition:
+      opacity .9s ease,
+      transform .9s cubic-bezier(.22,1,.36,1);
   }
+
+  .vouchers-image.reveal-left.visible,
+  .vouchers-text.reveal-right.visible{
+    transform:translateY(0);
+  }
+
 }
 
 /* OMEZENÍ POHYBU */
