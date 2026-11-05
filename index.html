@@ -22,7 +22,8 @@
 
 .nav a{font-size:16px}
 
-.nav a:hover,.nav a.active{color:var(--rose)}.pill{border:0;border-radius:30px;background:var(--rose);color:white;padding:14px 23px;display:inline-flex;gap:12px;align-items:center;justify-content:center;font-weight:700;font-size:11px;letter-spacing:.4px;cursor:pointer;transition:background .2s,transform .2s;white-space:nowrap}.pill:hover{background:var(--rose-dark);transform:translateY(-2px)}.pill svg{width:17px;height:17px}.menu-toggle{display:none;background:none;border:0;cursor:pointer;font-size:25px}.hero{height:500px;background:#eee6dd url('hero.webp') center center/cover no-repeat;position:relative;display:flex;align-items:center}.hero-content{width:100%;display:flex;justify-content:flex-end}.hero-copy{width:53%;padding:20px 0;transform:translateY(-25px)}.eyebrow{font-size:12px;letter-spacing:1.6px;margin:0 0 16px;font-weight:500}.hero h1{font:400 clamp(33px,3.8vw,58px)/1.2 var(--serif);color:var(--dark);margin:0 0 16px;max-width:620px}.hero-desc{font-size:16px;line-height:1.6;margin:0 0 20px}.hero .pill{padding:15px 28px}
+.nav a:hover,.nav a.active{color:var(--rose)}.pill{border:0;border-radius:30px;background:var(--rose);color:white;padding:14px 23px;display:inline-flex;gap:12px;align-items:center;justify-content:center;font-weight:700;font-size:11px;letter-spacing:.4px;cursor:pointer;transition:background .2s,transform .2s;white-space:nowrap}.pill:hover{background:var(--rose-dark);transform:translateY(-2px)}.pill svg{width:17px;height:17px}.menu-toggle{display:none;background:none;border:0;cursor:pointer;font-size:25px}
+.mobile-order{display:none}.hero{height:500px;background:#eee6dd url('hero.webp') center center/cover no-repeat;position:relative;display:flex;align-items:center}.hero-content{width:100%;display:flex;justify-content:flex-end}.hero-copy{width:53%;padding:20px 0;transform:translateY(-25px)}.eyebrow{font-size:12px;letter-spacing:1.6px;margin:0 0 16px;font-weight:500}.hero h1{font:400 clamp(33px,3.8vw,58px)/1.2 var(--serif);color:var(--dark);margin:0 0 16px;max-width:620px}.hero-desc{font-size:16px;line-height:1.6;margin:0 0 20px}.hero .pill{padding:15px 28px}
 
 /* SEKCE SLUZBY – PC */
 .services-section{
@@ -414,7 +415,25 @@ body{
     pointer-events: auto;
 }
 
-.header-inner>.nav a{padding:15px 25px;width:100%;text-align:center;border-top:1px solid #eee}.hero{min-height:560px;height:auto;background-position:30% top;background-size:auto 350px;background-color:#f5eee8;align-items:flex-end}.hero-content{padding-top:350px;padding-bottom:30px;justify-content:center}
+
+.header-inner>.nav a{
+    padding:15px 25px;
+    width:100%;
+    text-align:center;
+    border-top:1px solid #eee;
+}
+
+.header-inner>.nav .mobile-order{
+    display:inline-flex;
+    width:auto;
+    align-self:center;
+    margin:14px 0 18px;
+    padding:14px 23px;
+    border-top:0;
+    font-size:11px;
+    color:#fff;
+}
+.hero{min-height:560px;height:auto;background-position:30% top;background-size:auto 350px;background-color:#f5eee8;align-items:flex-end}.hero-content{padding-top:350px;padding-bottom:30px;justify-content:center}
 .hero-copy{
 width:100%;
 text-align:center;
@@ -591,7 +610,20 @@ padding:15px 0 0;transform:none}
 </head>
 <body>
 <svg xmlns="http://www.w3.org/2000/svg" style="display:none"><symbol id="calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M7 3v4M17 3v4M3 10h18M8 14h3M14 14h3M8 18h3" fill="none" stroke="currentColor" stroke-width="1.7"/></symbol><symbol id="pin" viewBox="0 0 24 24"><path d="M12 22S4 14 4 10a8 8 0 0 1 16 0c0 4-8 12-8 12Z"/><circle cx="12" cy="10" r="2.5"/></symbol><symbol id="phone" viewBox="0 0 24 24"><path d="M5 3h4l2 5-3 2c1.3 2.7 3.3 4.7 6 6l2-3 5 2v4c0 1.5-1 2-2.5 2C9 21 3 15 3 5.5 3 4 3.5 3 5 3Z"/></symbol><symbol id="clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 6v6l4 2"/></symbol></svg>
-<header class="site-header"><div class="header-inner wrap"><a class="logo" href="#uvod" aria-label="Studio eN – úvod"><div class="logo-main">STUDIO <em>eN</em></div><div class="logo-sub">LITOMYŠL</div></a><nav class="nav" id="main-nav"><a href="#uvod">Úvod</a><a href="#sluzby">Služby</a><a href="#cenik">Oblíbená ošetření</a><a href="#poukazy">Dárkové poukazy</a><a href="#kontakt">Kontakt</a></nav><a class="pill" href="#kontakt"><svg><use href="#calendar"/></svg> OBJEDNAT SE</a><button class="menu-toggle" aria-label="Otevřít menu" aria-expanded="false" aria-controls="main-nav">☰</button></div></header>
+<header class="site-header"><div class="header-inner wrap"><a class="logo" href="#uvod" aria-label="Studio eN – úvod"><div class="logo-main">STUDIO <em>eN</em></div><div class="logo-sub">LITOMYŠL</div></a>
+<nav class="nav" id="main-nav">
+    <a href="#uvod">Úvod</a>
+    <a href="#sluzby">Služby</a>
+    <a href="#cenik">Oblíbená ošetření</a>
+    <a href="#poukazy">Dárkové poukazy</a>
+    <a href="#kontakt">Kontakt</a>
+
+    <a class="pill mobile-order" href="#kontakt">
+        <svg><use href="#calendar"/></svg>
+        OBJEDNAT SE
+    </a>
+</nav>
+<a class="pill" href="#kontakt"><svg><use href="#calendar"/></svg> OBJEDNAT SE</a><button class="menu-toggle" aria-label="Otevřít menu" aria-expanded="false" aria-controls="main-nav">☰</button></div></header>
 <main><section class="hero" id="uvod" aria-label="Úvodní fotografie"><div class="hero-content wrap"><div class="hero-copy"><p class="eyebrow">KOSMETIKA&nbsp; • &nbsp;PERMANENTNÍ MAKE-UP&nbsp; • &nbsp;OMLAZENÍ&nbsp; • &nbsp;PÉČE O TĚLO</p><h1>Dopřejte své pleti péči, kterou si zaslouží.</h1><p class="hero-desc">Profesionální kosmetická péče<br>v příjemném prostředí v centru Litomyšle.</p><a class="pill" href="#sluzby">PROHLÉDNOUT SLUŽBY <span aria-hidden="true">⟶</span></a></div></div></section>
 <section class="services-section" id="sluzby">
   <div class="services-heading">
