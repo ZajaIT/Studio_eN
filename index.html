@@ -1119,12 +1119,19 @@ const pmuOrder = serviceModal.querySelector('.service-modal-order');
 
 let previousFocus = null;
 
+let modalScrollPosition = 0;
+
 function openPmuModal() {
   previousFocus = document.activeElement;
+  modalScrollPosition = window.scrollY;
+
   serviceModal.hidden = false;
 
-  document.documentElement.style.overflow = 'hidden';
-  document.body.style.overflow = 'hidden';
+  document.body.style.position = 'fixed';
+  document.body.style.top = `-${modalScrollPosition}px`;
+  document.body.style.left = '0';
+  document.body.style.right = '0';
+  document.body.style.width = '100%';
 
   pmuClose.focus();
 }
@@ -1132,8 +1139,16 @@ function openPmuModal() {
 function closePmuModal() {
   serviceModal.hidden = true;
 
+  document.body.style.position = '';
+  document.body.style.top = '';
+  document.body.style.left = '';
+  document.body.style.right = '';
+  document.body.style.width = '';
+
   document.documentElement.style.overflow = '';
   document.body.style.overflow = '';
+
+  window.scrollTo(0, modalScrollPosition);
 
   if (previousFocus) previousFocus.focus();
 }
