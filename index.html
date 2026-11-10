@@ -1174,121 +1174,108 @@ if (
 </script>
 
     <script>
-/* MODALY SLUŽEB */
+/* MODALY SLUŽEB – SPOLEČNÝ JAVASCRIPT */
 
-const serviceModal = document.getElementById('modal-pmu');
-const pmuCard = document.querySelectorAll('.category')[2];
-const pmuClose = serviceModal.querySelector('.service-modal-close');
-const pmuOverlay = serviceModal.querySelector('.service-modal-overlay');
-const pmuOrder = serviceModal.querySelector('.service-modal-order');
+const serviceModals = document.querySelectorAll('.service-modal');
+const serviceCards = document.querySelectorAll('.category');
 
+let activeServiceModal = null;
+let modalScrollPosition = 0;
 let previousFocus = null;
 
-let modalScrollPosition = 0;
+/* OTEVŘENÍ MODALU */
+function openServiceModal(modal) {
+  if (!modal || activeServiceModal) return;
 
-function openPmuModal() {
   previousFocus = document.activeElement;
   modalScrollPosition = window.scrollY;
+  activeServiceModal = modal;
 
-  serviceModal.hidden = false;
+  modal.hidden = false;
 
+  // Zákaz scrollování stránky na pozadí
   document.body.style.position = 'fixed';
   document.body.style.top = `-${modalScrollPosition}px`;
   document.body.style.left = '0';
   document.body.style.right = '0';
   document.body.style.width = '100%';
 
-  pmuClose.focus();
+  modal.querySelector('.service-modal-close').focus();
 }
 
-function closePmuModal() {
-  serviceModal.hidden = true;
+/* ZAVŘENÍ MODALU */
+function closeServiceModal() {
+  if (!activeServiceModal) return;
 
+  activeServiceModal.hidden = true;
+  activeServiceModal = null;
+
+  // Obnovení scrollování
   document.body.style.position = '';
   document.body.style.top = '';
   document.body.style.left = '';
   document.body.style.right = '';
   document.body.style.width = '';
-
-  document.documentElement.style.overflow = '';
   document.body.style.overflow = '';
+  document.documentElement.style.overflow = '';
 
   window.scrollTo(0, modalScrollPosition);
 
-  if (previousFocus) previousFocus.focus();
+  if (previousFocus) {
+    previousFocus.focus();
+  }
 }
 
-pmuCard.addEventListener('click', function(e) {
-  e.preventDefault();
-  openPmuModal();
-});
+/* PROPOJENÍ KARET S MODALY */
+const serviceModalLinks = {
+  2: 'modal-pmu',
+  3: 'modal-postava'
+};
 
-pmuClose.addEventListener('click', closePmuModal);
-pmuOverlay.addEventListener('click', closePmuModal);
+Object.entries(serviceModalLinks).forEach(([index, modalId]) => {
+  const card = serviceCards[Number(index)];
+  const modal = document.getElementById(modalId);
 
-document.addEventListener('keydown', function(e) {
-  if (e.key === 'Escape' && !serviceModal.hidden) {
-    closePmuModal();
+  if (card && modal) {
+    card.addEventListener('click', function(e) {
+      e.preventDefault();
+      openServiceModal(modal);
+    });
   }
 });
 
-pmuOrder.addEventListener('click', function() {
-  closePmuModal();
+/* ZAVÍRÁNÍ MODALŮ */
+serviceModals.forEach(modal => {
+
+  const closeButton = modal.querySelector('.service-modal-close');
+  const overlay = modal.querySelector('.service-modal-overlay');
+  const orderButton = modal.querySelector('.service-modal-order');
+
+  closeButton.addEventListener('click', closeServiceModal);
+  overlay.addEventListener('click', closeServiceModal);
+
+  orderButton.addEventListener('click', function(e) {
+    e.preventDefault();
+
+    closeServiceModal();
+
+    const contact = document.getElementById('kontakt');
+
+    if (contact) {
+      contact.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  });
+
 });
 
-        /* MODAL – FORMOVÁNÍ POSTAVY */
-
-const postavaModal = document.getElementById('modal-postava');
-const postavaCard = document.querySelectorAll('.category')[3];
-
-const postavaClose = postavaModal.querySelector('.service-modal-close');
-const postavaOverlay = postavaModal.querySelector('.service-modal-overlay');
-const postavaOrder = postavaModal.querySelector('.service-modal-order');
-
-let postavaScrollPosition = 0;
-
-function openPostavaModal() {
-  postavaScrollPosition = window.scrollY;
-
-  postavaModal.hidden = false;
-
-  document.body.style.position = 'fixed';
-  document.body.style.top = `-${postavaScrollPosition}px`;
-  document.body.style.left = '0';
-  document.body.style.right = '0';
-  document.body.style.width = '100%';
-
-  postavaClose.focus();
-}
-
-function closePostavaModal() {
-  postavaModal.hidden = true;
-
-  document.body.style.position = '';
-  document.body.style.top = '';
-  document.body.style.left = '';
-  document.body.style.right = '';
-  document.body.style.width = '';
-
-  window.scrollTo(0, postavaScrollPosition);
-}
-
-postavaCard.addEventListener('click', function(e) {
-  e.preventDefault();
-  openPostavaModal();
-});
-
-postavaClose.addEventListener('click', closePostavaModal);
-postavaOverlay.addEventListener('click', closePostavaModal);
-
+/* ZAVŘENÍ KLÁVESOU ESCAPE */
 document.addEventListener('keydown', function(e) {
-  if (e.key === 'Escape' && !postavaModal.hidden) {
-    closePostavaModal();
+  if (e.key === 'Escape' && activeServiceModal) {
+    closeServiceModal();
   }
-});
-
-postavaOrder.addEventListener('click', function() {
-  closePostavaModal();
 });
 </script>
 
