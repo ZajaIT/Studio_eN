@@ -416,70 +416,6 @@
   padding: 14px 35px;
 }
 
-    /* KOSMETICKÁ PÉČE – ROZBALOVACÍ CENÍK */
-
-/* Položka s rozbalovacím popisem */
-.service-price-item.service-accordion {
-  display: block;
-  padding: 0;
-}
-
-/* Klikací řádek */
-.service-accordion-toggle {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  width: 100%;
-  padding: 13px 0;
-  border: none;
-  background: transparent;
-  color: inherit;
-  font: inherit;
-  text-align: left;
-  cursor: pointer;
-}
-
-.service-accordion-toggle > span:first-child {
-  flex: 1;
-}
-
-.service-accordion-toggle strong {
-  color: var(--rose-dark);
-  font-size: 14px;
-  white-space: nowrap;
-}
-
-.service-accordion-arrow {
-  flex: 0 0 9px !important;
-  display: block;
-  width: 9px;
-  height: 9px;
-  font-size: 0;
-  border-right: 1.5px solid var(--rose);
-  border-bottom: 1.5px solid var(--rose);
-  transform: rotate(45deg);
-  transition: transform 0.25s ease;
-  margin: -5px 0 0 2px;
-}
-
-.service-accordion-toggle[aria-expanded="true"] .service-accordion-arrow {
-  transform: rotate(225deg);
-  margin-top: 5px;
-}
-
-/* Rozbalený popis */
-.service-accordion-content {
-  padding: 0 25px 15px 0;
-  font-size: 12px;
-  line-height: 1.7;
-  color: #777;
-  text-align: left;
-}
-
-.service-accordion-content[hidden] {
-  display: none;
-}
-
 /* Up Lift – poznámka s cenou */
 .service-price-with-note {
   display: block;
@@ -997,7 +933,8 @@ body{
 <article class="treatment-card"><img src="pmu-detail.webp" alt="Permanentní make-up"><div class="treatment-content"><h3>Permanentní<br>make-up</h3><p>Dokonalý vzhled 24/7. Obočí, linky, rty.</p><div class="price">cena individuálně</div><a class="pill small-pill" href="#kontakt">OBJEDNAT</a></div></article>
 </div></section>
 
-    <!-- MODAL – KOSMETICKÁ PÉČE -->
+    
+<!-- MODAL – KOSMETICKÁ PÉČE -->
 <div class="service-modal" id="modal-kosmetika"
      role="dialog"
      aria-modal="true"
@@ -1020,20 +957,16 @@ body{
 
     <div class="service-price-list">
 
-      <!-- KOMPLETNÍ KOSMETICKÉ OŠETŘENÍ -->
-      <div class="service-price-item service-accordion">
-        <button class="service-accordion-toggle" type="button"
-                aria-expanded="false">
-          <span>Kompletní kosmetické ošetření</span>
-          <strong>1.090,- Kč</strong>
-          <span class="service-accordion-arrow">⌄</span>
-        </button>
-        <div class="service-accordion-content" hidden>
-          (odlíčení, čištění pleti ultrazvukovou špachtlí, sérum, obličejová masáž, maska, krém)
-        </div>
+      <div class="service-price-item">
+        <span>
+          Kompletní kosmetické ošetření
+          <small class="service-price-note">
+            (odlíčení, čištění pleti ultrazvukovou špachtlí, sérum, obličejová masáž, maska, krém)
+          </small>
+        </span>
+        <strong>1.090,- Kč</strong>
       </div>
 
-      <!-- UP LIFT -->
       <div class="service-price-item service-price-with-note">
         <div class="service-price-main">
           <span>Up Lift liftingové ošetření</span>
@@ -1045,58 +978,46 @@ body{
         </div>
       </div>
 
-      <!-- NIOBLU COLLAGEN -->
-      <div class="service-price-item service-accordion">
-        <button class="service-accordion-toggle" type="button"
-                aria-expanded="false">
-          <span>Intenzivní ošetření NIOBLU COLLAGEN</span>
-          <strong>1.250,- Kč</strong>
-          <span class="service-accordion-arrow">⌄</span>
-        </button>
-        <div class="service-accordion-content" hidden>
-          (odlíčení, čištění pleti ultrazvukovou špachtlí, kolagen sérum, masáž, Gold Bio Collagenová Powder Facial maska, oční kolagenová maska, závěrečný krém na krk a dekolt s kolagenem, krém na obličej s kolagenem
-        </div>
+      <div class="service-price-item">
+        <span>
+          Intenzivní ošetření NIOBLU COLLAGEN
+          <small class="service-price-note">
+            (odlíčení, čištění pleti ultrazvukovou špachtlí, kolagen sérum, masáž, Gold Bio Collagenová Powder Facial maska, oční kolagenová maska, závěrečný krém na krk a dekolt s kolagenem, krém na obličej s kolagenem
+          </small>
+        </span>
+        <strong>1.250,- Kč</strong>
       </div>
 
-      <!-- RADIOFREKVENČNÍ LIFTING -->
       <div class="service-price-item">
         <span>Radiofrekvenční lifting včetně krku a dekoltu</span>
         <strong>1.320,-Kč</strong>
       </div>
 
-      <!-- TEENAGER OŠETŘENÍ -->
-      <div class="service-price-item service-accordion">
-        <button class="service-accordion-toggle" type="button"
-                aria-expanded="false">
-          <span>Teenager ošetření (do 21 let)</span>
-          <strong>760,-Kč</strong>
-          <span class="service-accordion-arrow">⌄</span>
-        </button>
-        <div class="service-accordion-content" hidden>
-          (odlíčení, čištění ulzv. špachtlí, maska, krém)
-        </div>
+      <div class="service-price-item">
+        <span>
+          Teenager ošetření (do 21 let)
+          <small class="service-price-note">
+            (odlíčení, čištění ulzv. špachtlí, maska, krém)
+          </small>
+        </span>
+        <strong>760,-Kč</strong>
       </div>
 
-      <!-- ZÁKLADNÍ KOSMETICKÉ OŠETŘENÍ -->
-      <div class="service-price-item service-accordion">
-        <button class="service-accordion-toggle" type="button"
-                aria-expanded="false">
-          <span>Kosmetické ošetření základní</span>
-          <strong>950,-Kč</strong>
-          <span class="service-accordion-arrow">⌄</span>
-        </button>
-        <div class="service-accordion-content" hidden>
-          (odlíčení, čištění pleti ulzv.špachtlí, maska, krém)
-        </div>
+      <div class="service-price-item">
+        <span>
+          Kosmetické ošetření základní
+          <small class="service-price-note">
+            (odlíčení, čištění pleti ulzv.špachtlí, maska, krém)
+          </small>
+        </span>
+        <strong>950,-Kč</strong>
       </div>
 
-      <!-- KOSMETICKÉ OŠETŘENÍ PRO MUŽE -->
       <div class="service-price-item">
         <span>Kosmetické ošetření pro muže</span>
         <strong>950,-Kč</strong>
       </div>
 
-      <!-- OBOČÍ A ŘASY -->
       <div class="service-price-item">
         <span>Barva a úprava obočí</span>
         <strong>290,-Kč</strong>
@@ -1119,6 +1040,7 @@ body{
 
   </div>
 </div>
+
 
     <!-- MODAL – FORMOVÁNÍ POSTAVY -->
 <div class="service-modal" id="modal-postava"
@@ -1526,30 +1448,6 @@ document.addEventListener('keydown', function(e) {
   }
 });
 
-        /* ROZBALOVACÍ POPISY OŠETŘENÍ */
-
-document.querySelectorAll('.service-accordion-toggle').forEach(button => {
-
-  button.addEventListener('click', function() {
-
-    const content = this.nextElementSibling;
-    const isOpen = this.getAttribute('aria-expanded') === 'true';
-
-    // Zavření ostatních otevřených popisů
-    document.querySelectorAll('.service-accordion-toggle').forEach(otherButton => {
-      otherButton.setAttribute('aria-expanded', 'false');
-      otherButton.nextElementSibling.hidden = true;
-    });
-
-    // Otevření vybrané položky
-    if (!isOpen) {
-      this.setAttribute('aria-expanded', 'true');
-      content.hidden = false;
-    }
-
-  });
-
-});
 </script>
 
 </body></html>
