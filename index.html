@@ -449,17 +449,22 @@
   white-space: nowrap;
 }
 
-/* Šipka */
 .service-accordion-arrow {
-  flex: none !important;
-  font-size: 22px;
-  line-height: 1;
-  color: var(--rose);
+  flex: 0 0 9px !important;
+  display: block;
+  width: 9px;
+  height: 9px;
+  font-size: 0;
+  border-right: 1.5px solid var(--rose);
+  border-bottom: 1.5px solid var(--rose);
+  transform: rotate(45deg);
   transition: transform 0.25s ease;
+  margin: -5px 0 0 2px;
 }
 
 .service-accordion-toggle[aria-expanded="true"] .service-accordion-arrow {
-  transform: rotate(180deg);
+  transform: rotate(225deg);
+  margin-top: 5px;
 }
 
 /* Rozbalený popis */
