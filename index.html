@@ -477,6 +477,114 @@
   }
 }
 
+    /* MODALY – ROZBALOVACÍ PODROBNÉ INFORMACE */
+
+/* Seznam rozbalovacích sekcí */
+.service-detail-list {
+  margin-top: 10px;
+  text-align: left;
+  border-top: 1px solid var(--line);
+}
+
+/* Jednotlivé sekce */
+.service-detail-item {
+  border-bottom: 1px solid var(--line);
+}
+
+/* Klikací nadpis */
+.service-detail-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  width: 100%;
+  padding: 18px 0;
+  border: none;
+  background: transparent;
+  color: var(--dark);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.5;
+  text-align: left;
+  cursor: pointer;
+}
+
+/* Plus a minus */
+.service-detail-icon {
+  flex: 0 0 22px;
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--rose);
+  border-radius: 50%;
+  color: var(--rose-dark);
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1;
+}
+
+/* Rozbalený obsah */
+.service-detail-content {
+  padding: 0 0 22px;
+  color: #555;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.service-detail-content[hidden] {
+  display: none;
+}
+
+.service-detail-content p {
+  margin: 0 0 15px;
+}
+
+.service-detail-content h4 {
+  margin: 22px 0 12px;
+  color: var(--dark);
+  font: 500 20px/1.4 var(--serif);
+}
+
+/* Ceník uvnitř rozbalené sekce */
+.service-detail-content .service-price-item {
+  align-items: flex-start;
+  gap: 15px;
+  font-size: 13px;
+}
+
+.service-detail-content .service-price-item strong {
+  font-size: 13px;
+}
+
+/* MOBIL */
+@media (max-width: 700px) {
+
+  .service-detail-toggle {
+    gap: 12px;
+    padding: 15px 0;
+    font-size: 13px;
+  }
+
+  .service-detail-icon {
+    flex-basis: 20px;
+    width: 20px;
+    height: 20px;
+    font-size: 15px;
+  }
+
+  .service-detail-content {
+    font-size: 12px;
+    line-height: 1.7;
+  }
+
+  .service-detail-content h4 {
+    font-size: 18px;
+  }
+
+}
+
     /* FILLIFT – PROUŽEK NOVINKA */
 
 .fillift-image {
@@ -935,6 +1043,224 @@ body{
 </div></section>
 
     
+<!-- MODAL – OMLAZENÍ PLETI -->
+<div class="service-modal" id="modal-omlazeni"
+     role="dialog"
+     aria-modal="true"
+     aria-labelledby="modal-omlazeni-title"
+     hidden>
+
+  <div class="service-modal-overlay"></div>
+
+  <div class="service-modal-content">
+
+    <button class="service-modal-close"
+            type="button"
+            aria-label="Zavřít okno">×</button>
+
+    <h2 id="modal-omlazeni-title">Omlazení pleti</h2>
+
+    <div class="service-modal-line"></div>
+
+    <p class="service-modal-subtitle">CENÍK OŠETŘENÍ</p>
+
+    <div class="service-price-list">
+
+      <div class="service-price-item">
+        <span>Mikrodemabraze včetně kompl. kosmetik. ošetření</span>
+        <strong>1 390 Kč</strong>
+      </div>
+
+      <div class="service-price-item">
+        <span>Mikrodemabraze pokračovací, samostatně</span>
+        <strong>590 Kč</strong>
+      </div>
+
+      <div class="service-price-item">
+        <span>Microneedling s kosmetikou</span>
+        <strong>1 990 Kč</strong>
+      </div>
+
+      <div class="service-price-item">
+        <span>Microneedling pokračovací,  samostatně</span>
+        <strong>1 190 Kč</strong>
+      </div>
+
+      <div class="service-price-item">
+        <span>Microneedling + BB Glow</span>
+        <strong>2 490 Kč</strong>
+      </div>
+
+      <div class="service-price-item">
+        <span>3 ošetření Microneedling + BB Glow</span>
+        <strong>6 150 Kč</strong>
+      </div>
+
+    </div>
+
+    <h3 class="service-modal-section-title">Podrobné informace o ošetřeních</h3>
+
+    <div class="service-detail-list">
+
+      <!-- BUKÁLNÍ MASÁŽ -->
+      <div class="service-detail-item">
+        <button class="service-detail-toggle" type="button" aria-expanded="false">
+          <span>BUKÁLNÍ A LIFTINGOVÁ MASÁŽ OBLIČEJE</span>
+          <span class="service-detail-icon" aria-hidden="true">+</span>
+        </button>
+
+        <div class="service-detail-content" hidden>
+
+          <p>Při skulpturálně-bukální masáži se s vašimi obličejovými svaly pracuje nejen zvenku, ale také intraorálně, zevnitř přes vaše otevřená ústa. Tato revoluční metoda jako jediná umožňuje dosáhnout těch nejhlubších vrstev kůže, jako jsou svalová tkáň, vazy a kosti. Díky masáži vnitřních struktur můžeme přirozeně odstranit hlubší blokády, povzbudit tok lymfy, uvolnit toxické látky, zjemnit hluboké vrásky, redukovat otoky ve  tvářích a zpevnit, napnout a pozvednout vaši pokožku. Výsledkem je viditelné snížení vizuálních známek stárnutí pleti bez chirurgických zásahů, a to již po prvním ošetření.</p>
+
+          <p>Tato masáž je oblíbenou stálicí mezi hollywoodskými hvězdami, od roku  2023 i známých českých celebrit.</p>
+
+          <p>Pro stabilní účinek doporučujeme kúru 6 až 8 ošetření<br>
+          1x týdně nebo 1x za 10 dní, poté udržující masáž<br>
+          1x za 1-1,5 měsíce</p>
+
+          <div class="service-price-item">
+            <span>60 minut ( odlíčení, tonizace, masáž liftingová a bukální, krém)</span>
+            <strong>1 400 Kč</strong>
+          </div>
+
+          <h4>Královské ošetření</h4>
+
+          <div class="service-price-item">
+            <span>120min. ( odlíčení, peeling, hluboké čistění, úprava a barva obočí, liftingové sérum,  lift. bukální masáž, liftingová maska, krém)</span>
+            <strong>2 200 Kč</strong>
+          </div>
+
+          <h4>Speciální nabídka</h4>
+
+          <div class="service-price-item">
+            <span>Balíček 6 procedur se slevou</span>
+            <strong>6 240 Kč</strong>
+          </div>
+
+          <div class="service-price-item">
+            <span>Balíček 8 procedur se slevou</span>
+            <strong>7 800 Kč</strong>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- DIAMANTOVÁ MIKRODEMABRAZE -->
+      <div class="service-detail-item">
+        <button class="service-detail-toggle" type="button" aria-expanded="false">
+          <span>Diamantová mikrodemabraze</span>
+          <span class="service-detail-icon" aria-hidden="true">+</span>
+        </button>
+
+        <div class="service-detail-content" hidden>
+
+          <p>Microneedling &amp; BB GLOW …..Diamantová mikrodemabraze</p>
+
+          <p>. zjemnění mimických vrásek<br>
+          . redukce pigmentových a stařeckých skvrn<br>
+          . ošetření unavené pleti, regenerace a omlazení<br>
+          . ošetření mastné pleti, zatažení pórů<br>
+          . vysoce efektivní ošetření vrásek, zjemnění mimických          vrásek</p>
+
+          <p>Pro optimální výsledek doporučuji 3 ošetření vždy 1x týdně, pro udržení efektu vždy v rámci kosmetického ošetření ( cca po 6ti týdnech během podzimu a zimy).</p>
+
+          <p>Nutnost používat na den SPF  celoročně!!!</p>
+
+          <div class="service-price-item">
+            <span>1 ošetření</span>
+            <strong>590 Kč</strong>
+          </div>
+
+          <div class="service-price-item">
+            <span>Diamantová mikrodemabraze včetně kompletního kosmetického ošetření</span>
+            <strong>1 390 Kč</strong>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- UP LIFT -->
+      <div class="service-detail-item">
+        <button class="service-detail-toggle" type="button" aria-expanded="false">
+          <span>Up Lift kosmetické ošetření</span>
+          <span class="service-detail-icon" aria-hidden="true">+</span>
+        </button>
+
+        <div class="service-detail-content" hidden>
+
+          <p>viditelný rozdíl už po jednom ošetření</p>
+
+          <p>Up Lift ošetření je neinvazivní liftingová a zpevňující kúra zaměřená na :</p>
+
+          <p>- zpevnění kontur obličeje<br>
+          - redukce vrásek<br>
+          - sjednocení barvy pleti a její projasnění</p>
+
+          <p>Kroky procedury: odlíčení, čištění pleti, aplikace sér, kombinace radiofrekvence, liftingové masáže s pomůckou Guasha, maska, infra světlo.</p>
+
+          <div class="service-price-item">
+            <span>Cena vcetně hydrogelové masky</span>
+            <strong>1 390 Kč</strong>
+          </div>
+
+          <div class="service-price-item">
+            <span>Cena s vyplňující maskou</span>
+            <strong>1 290 Kč</strong>
+          </div>
+
+          <p>Doporučuji pravidelně používat domácí péči z řady Up Lift pro ještě lepší a trvalé výsledky.</p>
+
+        </div>
+      </div>
+
+      <!-- MICRONEEDLING A BB GLOW -->
+      <div class="service-detail-item">
+        <button class="service-detail-toggle" type="button" aria-expanded="false">
+          <span>Microneedling &amp; BB GLOW</span>
+          <span class="service-detail-icon" aria-hidden="true">+</span>
+        </button>
+
+        <div class="service-detail-content" hidden>
+
+          <p>Úžasné ošetření, které doporučujeme v období od podzimu do jara v sérii 3 ošetření v rozmezí 3 – 4 týdnů, vždy používat celoročně SPF 50 na den a výsledkem může být krásná, rozzářená pleť.</p>
+
+          <p>Které problémy toto ošetření řeší?</p>
+
+          <p>- kruhy pod očima<br>
+          - hyperpigmentace<br>
+          - jizvy<br>
+          - zvětšené póry<br>
+          - vrásky<br>
+          - unavená pleť<br>
+          - dehydratace, suchá pleť<br>
+          - akné<br>
+          - začervenání</p>
+
+          <p>Průběh ošetření: lehký chemický peeling, exfoliace, micronnedling, což je zapracování vhodných sér do hlubší vrstvy pokožky jehličkováním, ( kyselina hyaluronová, peptidy, DNA losos,  gold atd., ), bb glow – do Vaší pokožky se implementují tónovací séra obohacená o niacinamidy a peptidy, světelný tunel( 20 min.) nebo maska.</p>
+
+          <div class="service-price-item">
+            <span>Cena za 1 ošetření ( cca 1,5hod.)</span>
+            <strong>2 490 Kč</strong>
+          </div>
+
+          <div class="service-price-item">
+            <span>Cena za 3 ošetření (    - „ -         )</span>
+            <strong>6 150 Kč</strong>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+    <a href="#kontakt" class="pill service-modal-order">
+      OBJEDNAT SE
+    </a>
+
+  </div>
+</div>
+
 
 <!-- MODAL – KOSMETICKÁ PÉČE -->
 <div class="service-modal" id="modal-kosmetika"
@@ -1401,6 +1727,7 @@ function closeServiceModal() {
 /* PROPOJENÍ KARET S MODALY */
 const serviceModalLinks = {
   0: 'modal-kosmetika',
+  1: 'modal-omlazeni',
   2: 'modal-pmu',
   3: 'modal-postava'
 };
@@ -1449,6 +1776,31 @@ document.addEventListener('keydown', function(e) {
   if (e.key === 'Escape' && activeServiceModal) {
     closeServiceModal();
   }
+});
+
+        /* OMLAZENÍ PLETI – ROZBALOVACÍ INFORMACE */
+
+document.querySelectorAll('.service-detail-toggle').forEach(button => {
+  button.addEventListener('click', function() {
+
+    const content = this.nextElementSibling;
+    const isOpen = this.getAttribute('aria-expanded') === 'true';
+
+    // Zavření ostatních rozbalených sekcí
+    document.querySelectorAll('.service-detail-toggle').forEach(otherButton => {
+      otherButton.setAttribute('aria-expanded', 'false');
+      otherButton.nextElementSibling.hidden = true;
+      otherButton.querySelector('.service-detail-icon').textContent = '+';
+    });
+
+    // Otevření vybrané sekce
+    if (!isOpen) {
+      this.setAttribute('aria-expanded', 'true');
+      content.hidden = false;
+      this.querySelector('.service-detail-icon').textContent = '−';
+    }
+
+  });
 });
 
 </script>
