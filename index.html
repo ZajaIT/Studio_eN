@@ -607,6 +607,84 @@
 
 }
 
+    /* FILLIFT – VIDEO MODAL – PC */
+
+.fillift-video-modal[hidden] {
+    display: none;
+}
+
+.fillift-video-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+}
+
+.fillift-video-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+}
+
+.fillift-video-content {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 380px;
+    max-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fillift-video-content video {
+    display: block;
+    width: 100%;
+    max-height: 90vh;
+    object-fit: contain;
+    border-radius: 5px;
+}
+
+.fillift-video-close {
+    position: absolute;
+    top: -18px;
+    right: -18px;
+    z-index: 2;
+    width: 36px;
+    height: 36px;
+    border: none;
+    border-radius: 50%;
+    background: var(--rose);
+    color: #fff;
+    font-size: 26px;
+    cursor: pointer;
+}
+
+/* FILLIFT – VIDEO MODAL – MOBIL */
+
+@media (max-width: 700px) {
+
+    .fillift-video-modal {
+        padding: 20px;
+    }
+
+    .fillift-video-content {
+        max-width: 320px;
+    }
+
+    .fillift-video-content video {
+        max-height: 80dvh;
+    }
+
+    .fillift-video-close {
+        top: -15px;
+        right: -10px;
+    }
+}
+
     /* FILLIFT – PROUŽEK NOVINKA */
 
 .fillift-image {
@@ -1295,6 +1373,10 @@ body{
 
     <p>Znovu objevte pevnou a zářivou pleť, která překračuje přírodní zákony.</p>
 
+      <button type="button" class="pill fillift-video-button">
+  ▶ PŘEHRÁT VIDEO
+</button>
+
   </div>
 </div>
 
@@ -1412,7 +1494,26 @@ body{
   </div>
 </div>
 
+    <!-- VIDEO MODAL – FILLIFT -->
+<div class="fillift-video-modal" id="fillift-video-modal" hidden>
 
+  <div class="fillift-video-overlay"></div>
+
+  <div class="fillift-video-content">
+
+    <button type="button"
+            class="fillift-video-close"
+            aria-label="Zavřít video">×</button>
+
+    <video id="fillift-video" controls playsinline preload="none">
+      <source src="fillift.mp4" type="video/mp4">
+      Váš prohlížeč nepodporuje přehrávání videa.
+    </video>
+
+  </div>
+
+</div>
+    
 <!-- MODAL – KOSMETICKÁ PÉČE -->
 <div class="service-modal" id="modal-kosmetika"
      role="dialog"
@@ -1952,6 +2053,34 @@ document.querySelectorAll('.service-detail-toggle').forEach(button => {
     }
 
   });
+});
+
+        /* FILLIFT – OTEVÍRÁNÍ A ZAVÍRÁNÍ VIDEA */
+
+const filliftVideoButton = document.querySelector('.fillift-video-button');
+const filliftVideoModal = document.getElementById('fillift-video-modal');
+const filliftVideo = document.getElementById('fillift-video');
+const filliftVideoClose = document.querySelector('.fillift-video-close');
+const filliftVideoOverlay = document.querySelector('.fillift-video-overlay');
+
+function closeFilliftVideo() {
+    filliftVideo.pause();
+    filliftVideo.currentTime = 0;
+    filliftVideoModal.hidden = true;
+}
+
+filliftVideoButton.addEventListener('click', () => {
+    filliftVideoModal.hidden = false;
+    filliftVideo.play().catch(() => {});
+});
+
+filliftVideoClose.addEventListener('click', closeFilliftVideo);
+filliftVideoOverlay.addEventListener('click', closeFilliftVideo);
+
+document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && !filliftVideoModal.hidden) {
+        closeFilliftVideo();
+    }
 });
 
 </script>
