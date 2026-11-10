@@ -411,8 +411,23 @@
   margin: 30px 0 12px;
   text-align: left;
 }
-    #modal-omlazeni .service-modal-section-title {
+
+#modal-omlazeni .service-modal-section-title {
   text-align: center;
+  margin-bottom: 25px;
+}
+
+#modal-omlazeni .service-modal-section-title::after {
+  content: "";
+  display: block;
+  width: 75px;
+  height: 1px;
+  background: var(--rose);
+  margin: 17px auto 0;
+}
+
+#modal-omlazeni .service-detail-list {
+  border-top: none;
 }
 
 .service-modal-order {
