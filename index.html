@@ -1470,6 +1470,7 @@ function closeServiceModal() {
 
 /* PROPOJENÍ KARET S MODALY */
 const serviceModalLinks = {
+  0: 'modal-kosmetika',
   2: 'modal-pmu',
   3: 'modal-postava'
 };
@@ -1518,6 +1519,31 @@ document.addEventListener('keydown', function(e) {
   if (e.key === 'Escape' && activeServiceModal) {
     closeServiceModal();
   }
+});
+
+        /* ROZBALOVACÍ POPISY OŠETŘENÍ */
+
+document.querySelectorAll('.service-accordion-toggle').forEach(button => {
+
+  button.addEventListener('click', function() {
+
+    const content = this.nextElementSibling;
+    const isOpen = this.getAttribute('aria-expanded') === 'true';
+
+    // Zavření ostatních otevřených popisů
+    document.querySelectorAll('.service-accordion-toggle').forEach(otherButton => {
+      otherButton.setAttribute('aria-expanded', 'false');
+      otherButton.nextElementSibling.hidden = true;
+    });
+
+    // Otevření vybrané položky
+    if (!isOpen) {
+      this.setAttribute('aria-expanded', 'true');
+      content.hidden = false;
+    }
+
+  });
+
 });
 </script>
 
