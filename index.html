@@ -389,6 +389,14 @@
 .service-price-item span {
   flex: 1;
 }
+.service-price-note {
+  display: block;
+  margin-top: 5px;
+  font-size: 12px;
+  line-height: 1.5;
+  font-weight: 400;
+  color: #777;
+}
 
 .service-price-item strong {
   color: var(--rose-dark);
@@ -865,6 +873,63 @@ body{
 <article class="treatment-card"><img src="pmu-detail.webp" alt="Permanentní make-up"><div class="treatment-content"><h3>Permanentní<br>make-up</h3><p>Dokonalý vzhled 24/7. Obočí, linky, rty.</p><div class="price">cena individuálně</div><a class="pill small-pill" href="#kontakt">OBJEDNAT</a></div></article>
 </div></section>
 
+    <!-- MODAL – FORMOVÁNÍ POSTAVY -->
+<div class="service-modal" id="modal-postava"
+     role="dialog"
+     aria-modal="true"
+     aria-labelledby="modal-postava-title"
+     hidden>
+
+  <div class="service-modal-overlay"></div>
+
+  <div class="service-modal-content">
+
+    <button class="service-modal-close"
+            type="button"
+            aria-label="Zavřít okno">×</button>
+
+    <h2 id="modal-postava-title">Formování postavy</h2>
+
+    <div class="service-modal-line"></div>
+
+    <p class="service-modal-subtitle">CENÍK OŠETŘENÍ</p>
+
+    <div class="service-price-list">
+
+      <div class="service-price-item">
+        <span>Vacupress Niodé</span>
+        <strong>490 Kč</strong>
+      </div>
+
+      <div class="service-price-item">
+        <span>10× Niodé</span>
+        <strong>4 400 Kč</strong>
+      </div>
+
+      <div class="service-price-item">
+        <span>
+          Lymfodrenáž 50 min
+          <small class="service-price-note">
+            Včetně manuálního otevření lymfatických uzlin
+          </small>
+        </span>
+        <strong>190 Kč</strong>
+      </div>
+
+      <div class="service-price-item">
+        <span>10× lymfodrenáž 50 min</span>
+        <strong>1 700 Kč</strong>
+      </div>
+
+    </div>
+
+    <a href="#kontakt" class="pill service-modal-order">
+      OBJEDNAT SE
+    </a>
+
+  </div>
+</div>
+
     <!-- MODAL – PERMANENTNÍ MAKE-UP -->
 <div class="service-modal" id="modal-pmu"
      role="dialog"
@@ -1169,6 +1234,61 @@ document.addEventListener('keydown', function(e) {
 
 pmuOrder.addEventListener('click', function() {
   closePmuModal();
+});
+
+        /* MODAL – FORMOVÁNÍ POSTAVY */
+
+const postavaModal = document.getElementById('modal-postava');
+const postavaCard = document.querySelectorAll('.category')[3];
+
+const postavaClose = postavaModal.querySelector('.service-modal-close');
+const postavaOverlay = postavaModal.querySelector('.service-modal-overlay');
+const postavaOrder = postavaModal.querySelector('.service-modal-order');
+
+let postavaScrollPosition = 0;
+
+function openPostavaModal() {
+  postavaScrollPosition = window.scrollY;
+
+  postavaModal.hidden = false;
+
+  document.body.style.position = 'fixed';
+  document.body.style.top = `-${postavaScrollPosition}px`;
+  document.body.style.left = '0';
+  document.body.style.right = '0';
+  document.body.style.width = '100%';
+
+  postavaClose.focus();
+}
+
+function closePostavaModal() {
+  postavaModal.hidden = true;
+
+  document.body.style.position = '';
+  document.body.style.top = '';
+  document.body.style.left = '';
+  document.body.style.right = '';
+  document.body.style.width = '';
+
+  window.scrollTo(0, postavaScrollPosition);
+}
+
+postavaCard.addEventListener('click', function(e) {
+  e.preventDefault();
+  openPostavaModal();
+});
+
+postavaClose.addEventListener('click', closePostavaModal);
+postavaOverlay.addEventListener('click', closePostavaModal);
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape' && !postavaModal.hidden) {
+    closePostavaModal();
+  }
+});
+
+postavaOrder.addEventListener('click', function() {
+  closePostavaModal();
 });
 </script>
 
