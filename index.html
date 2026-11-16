@@ -1179,7 +1179,7 @@ Kosmetika, permanentní make-up, omlazení, péče o tělo.
     <h3>FILLIFT</h3>
     <p>Za hranicí gravitace. Výraznější kontury, méně vrásek, obnovený objem.</p>
     <div class="price">cena na dotaz</div>
-    <a class="pill small-pill" href="#kontakt">VÍCE INFORMACÍ</a>
+    <button type="button" class="pill small-pill" data-modal="modal-fillift">VÍCE INFORMACÍ</button>
   </div>
 </article>
 
@@ -1189,6 +1189,49 @@ Kosmetika, permanentní make-up, omlazení, péče o tělo.
 <article class="treatment-card"><img src="microneedling.webp" alt="Microneedling"><div class="treatment-content"><h3>Microneedling</h3><p>Stimulace kolagenu, regenerace pleti, zlepšení elasticity.</p><div class="price">90 min · 1 390 Kč</div><a class="pill small-pill" href="#kontakt">VÍCE INFORMACÍ</a></div></article>
 <article class="treatment-card"><img src="radiofrekvence.webp" alt="Radiofrekvenční lifting"><div class="treatment-content"><h3>Radiofrekvenční lifting</h3><p>Zpevnění pleti, včetně krku a dekoltu.</p><div class="price">od 1 300 Kč</div><a class="pill small-pill" href="#kontakt">VÍCE INFORMACÍ</a></div></article>
 </div></section>
+
+    
+<!-- MODAL – FILLIFT -->
+<div class="service-modal" id="modal-fillift"
+     role="dialog"
+     aria-modal="true"
+     aria-labelledby="modal-fillift-title"
+     hidden>
+
+  <div class="service-modal-overlay"></div>
+
+  <div class="service-modal-content">
+
+    <button class="service-modal-close"
+            type="button"
+            aria-label="Zavřít okno">×</button>
+
+    <h2 id="modal-fillift-title">FILLIFT – ZA HRANICÍ GRAVITACE</h2>
+
+    <div class="service-modal-line"></div>
+
+    <div class="service-detail-content">
+
+      <p>Gravitace je přírodní zákon. FILLIFT je tu, aby ho přepsal.</p>
+
+      <p>Díky kolagenovým spikulím a Collalift® 18 hloubkově revitalizuje pleť, zvýrazňuje kontury obličeje a viditelně redukuje vrásky.</p>
+
+      <p><strong>Výraznější kontury – méně vrásek – obnovený objem</strong></p>
+
+      <p>Znovu objevte pevnou a zářivou pleť, která překračuje přírodní zákony.</p>
+
+      <button type="button" class="pill fillift-video-button">
+        ▶ PŘEHRÁT VIDEO
+      </button>
+
+    </div>
+
+    <a href="#kontakt" class="pill service-modal-order">
+      OBJEDNAT SE
+    </a>
+
+  </div>
+</div>
 
     
 <!-- MODAL – BUKÁLNÍ A LIFTINGOVÁ MASÁŽ -->
@@ -2167,7 +2210,7 @@ document.querySelectorAll('.service-detail-toggle').forEach(button => {
 
         /* FILLIFT – OTEVÍRÁNÍ A ZAVÍRÁNÍ VIDEA */
 
-const filliftVideoButton = document.querySelector('.fillift-video-button');
+const filliftVideoButtons = document.querySelectorAll('.fillift-video-button');
 const filliftVideoModal = document.getElementById('fillift-video-modal');
 const filliftVideo = document.getElementById('fillift-video');
 const filliftVideoClose = document.querySelector('.fillift-video-close');
@@ -2179,9 +2222,11 @@ function closeFilliftVideo() {
     filliftVideoModal.hidden = true;
 }
 
-filliftVideoButton.addEventListener('click', () => {
-    filliftVideoModal.hidden = false;
-    filliftVideo.play().catch(() => {});
+filliftVideoButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        filliftVideoModal.hidden = false;
+        filliftVideo.play().catch(() => {});
+    });
 });
 
 filliftVideoClose.addEventListener('click', closeFilliftVideo);
