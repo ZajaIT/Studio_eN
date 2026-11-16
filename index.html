@@ -2065,7 +2065,11 @@ function closeServiceModal() {
   document.body.style.overflow = '';
   document.documentElement.style.overflow = '';
 
-  window.scrollTo(0, modalScrollPosition);
+  window.scrollTo({
+  top: modalScrollPosition,
+  left: 0,
+  behavior: 'instant'
+});
 
   if (previousFocus) {
     previousFocus.focus();
