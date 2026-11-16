@@ -1169,7 +1169,7 @@ Kosmetika, permanentní make-up, omlazení, péče o tělo.
 
   <div class="categories wrap"><a class="category" href="javascript:void(0)"><img src="kosmetika.webp" alt="Kosmetické ošetření"><div class="category-info"><div class="category-title">KOSMETICKÁ PÉČE</div><span class="circle-arrow">→</span></div></a><a class="category" href="javascript:void(0)"><img src="omlazeni.webp" alt="Omlazení pleti"><div class="category-info"><div class="category-title">OMLAZENÍ PLETI</div><span class="circle-arrow">→</span></div></a><a class="category" href="javascript:void(0)"><img src="permanentni-makeup.webp" alt="Permanentní make-up obočí"><div class="category-info"><div class="category-title">PERMANENTNÍ<br>MAKE-UP</div><span class="circle-arrow">→</span></div></a><a class="category" href="javascript:void(0)"><img src="telo.webp" alt="Péče o tělo"><div class="category-info"><div class="category-title">FORMOVÁNÍ POSTAVY</div><span class="circle-arrow">→</span></div></a></div></section>
 <section class="treatments wrap" id="cenik"><div class="section-heading"><h2>Oblíbená ošetření</h2></div><div class="treatment-grid">
-<article class="treatment-card"><img src="bukkalni-masaz.webp" alt="Bukální a liftingová masáž"><div class="treatment-content"><h3>Bukální a liftingová masáž</h3><p>Přirozený lifting obličeje, vyhlazení kontur, svěží vzhled.</p><div class="price">60 min · 1 400 Kč</div><a class="pill small-pill" href="#kontakt">VÍCE INFORMACÍ</a></div></article>
+<article class="treatment-card"><img src="bukkalni-masaz.webp" alt="Bukální a liftingová masáž"><div class="treatment-content"><h3>Bukální a liftingová masáž</h3><p>Přirozený lifting obličeje, vyhlazení kontur, svěží vzhled.</p><div class="price">60 min · 1 400 Kč</div><button type="button" class="pill small-pill" data-modal="modal-bukkalni">VÍCE INFORMACÍ</button></div></article>
 <article class="treatment-card">
   <div class="fillift-image">
   <img src="fillift.webp" alt="FILLIFT">
@@ -1189,6 +1189,55 @@ Kosmetika, permanentní make-up, omlazení, péče o tělo.
 <article class="treatment-card"><img src="microneedling.webp" alt="Microneedling"><div class="treatment-content"><h3>Microneedling</h3><p>Stimulace kolagenu, regenerace pleti, zlepšení elasticity.</p><div class="price">90 min · 1 390 Kč</div><a class="pill small-pill" href="#kontakt">VÍCE INFORMACÍ</a></div></article>
 <article class="treatment-card"><img src="radiofrekvence.webp" alt="Radiofrekvenční lifting"><div class="treatment-content"><h3>Radiofrekvenční lifting</h3><p>Zpevnění pleti, včetně krku a dekoltu.</p><div class="price">od 1 300 Kč</div><a class="pill small-pill" href="#kontakt">VÍCE INFORMACÍ</a></div></article>
 </div></section>
+
+    
+<!-- MODAL – BUKÁLNÍ A LIFTINGOVÁ MASÁŽ -->
+<div class="service-modal" id="modal-bukkalni"
+     role="dialog"
+     aria-modal="true"
+     aria-labelledby="modal-bukkalni-title"
+     hidden>
+
+  <div class="service-modal-overlay"></div>
+
+  <div class="service-modal-content">
+
+    <button class="service-modal-close"
+            type="button"
+            aria-label="Zavřít okno">×</button>
+
+    <h2 id="modal-bukkalni-title">Bukální a liftingová masáž obličeje</h2>
+
+    <div class="service-modal-line"></div>
+
+    <div class="service-detail-content">
+
+      <p>Při skulpturálně-bukální masáži se s vašimi obličejovými svaly pracuje nejen zvenku, ale také intraorálně, zevnitř přes vaše otevřená ústa. Tato revoluční metoda jako jediná umožňuje dosáhnout těch nejhlubších vrstev kůže, jako jsou svalová tkáň, vazy a kosti. Díky masáži vnitřních struktur můžeme přirozeně odstranit hlubší blokády, povzbudit tok lymfy, uvolnit toxické látky, zjemnit hluboké vrásky, redukovat otoky ve  tvářích a zpevnit, napnout a pozvednout vaši pokožku. Výsledkem je viditelné snížení vizuálních známek stárnutí pleti bez chirurgických zásahů, a to již po prvním ošetření.</p>
+
+      <p>Tato masáž je od roku 2023 oblíbenou stálicí mezi hollywoodskými hvězdami i mezi známými českými celebritami.</p>
+
+      <p>Pro stabilní účinek doporučuji kúru 6 až 8 ošetření<br>
+      1x týdně nebo 1x za 10 dní, poté udržující masáž<br>
+      1x za 1-1,5 měsíce</p>
+
+      <div class="service-price-item">
+        <span>
+          Bukální a liftingová masáž · 60 min
+          <small class="service-price-note">
+            (odlíčení, tonizace, masáž liftingová a bukální, krém)
+          </small>
+        </span>
+        <strong>1 400 Kč</strong>
+      </div>
+
+    </div>
+
+    <a href="#kontakt" class="pill service-modal-order">
+      OBJEDNAT SE
+    </a>
+
+  </div>
+</div>
 
     
 <!-- MODAL – OMLAZENÍ PLETI -->
@@ -2042,6 +2091,16 @@ Object.entries(serviceModalLinks).forEach(([index, modalId]) => {
     });
   }
 });
+        
+/* OBLÍBENÁ OŠETŘENÍ – OTEVÍRÁNÍ MODALŮ */
+document.querySelectorAll('.treatment-card [data-modal]').forEach(button => {
+  button.addEventListener('click', function() {
+    const modal = document.getElementById(this.dataset.modal);
+    openServiceModal(modal);
+  });
+});
+
+
 
 /* ZAVÍRÁNÍ MODALŮ */
 serviceModals.forEach(modal => {
