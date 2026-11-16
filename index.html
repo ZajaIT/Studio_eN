@@ -110,10 +110,17 @@
   height:1px;
   background:var(--rose);
   margin:15px auto 0;
-}.section-heading>a{font-size:11px;color:var(--rose-dark);letter-spacing:.6px}.treatment-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:15px}.treatment-card{background:#fff;display:flex;flex-direction:column;min-width:0}.treatment-card img{
+}.section-heading>a{font-size:11px;color:var(--rose-dark);letter-spacing:.6px}.treatment-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:15px}.treatment-card{background:#fff;display:flex;flex-direction:column;min-width:0}
+ 
+    .treatment-card img{
   height:clamp(105px,10.3vw,175px);
   object-fit:cover;
   filter:saturate(0.78) contrast(0.96);
+}
+
+    /* Hyaluron Pen – bez barevného filtru */
+.treatment-card img[src="hyaluron.webp"] {
+  filter: none;
 }
     .treatment-content{
     padding:13px 12px 12px;
